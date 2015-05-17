@@ -1,0 +1,28 @@
+<div>
+
+  <h3>{{currentUser.name}} {{currentUser.surname}}</h3>
+  <br>
+  Search : <input type="text" ng-model="searchText"/>
+  <table>
+    <tr>
+      <th>PROJECT NAME</th>
+      <th>DESCRIPTION</th>
+      <th>ROLE</th>
+      <th>DELETE</th>
+    </tr>
+    <tr ng-repeat="project in projectForUser | filter:searchText" id="row {{project.id}}">
+      <td>
+        {{project.title}}
+      </td>
+      <td>
+        {{project.description}}
+      </td>
+      <td>
+        {{project.role}}
+      </td>
+      <td>
+        <a class="button delete" ng-click="deleteUserFromProject(project.id, currentUser.id )">Delete</a>
+      </td>
+    </tr>
+  </table>
+</div>

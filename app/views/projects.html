@@ -1,0 +1,39 @@
+<div>
+  <br>
+  Search : <input type="text" ng-model="searchText"/>
+  <table>
+    <tr>
+      <th>NAME</th>
+      <th>YEAR</th>
+      <th>DESCRIPTION</th>
+      <th>EDIT</th>
+      <th>INFO</th>
+      <th>DELETE</th>
+    </tr>
+    <tr ng-repeat="proj in projects | filter:searchText" id="row {{proj.id}}">
+      <td>
+        <label ng-hide="editing">{{proj.title}}</label>
+        <input id="title {{proj.id}}" type="text" ng-model="proj.title" ng-show="editing"/>
+      </td>
+      <td>
+        <label ng-hide="editing">{{proj.year}}</label>
+        <input id="year {{proj.id}}" type="text" ng-model="proj.year" ng-show="editing"/>
+      </td>
+      <td>
+        <label ng-hide="editing">{{proj.description}}</label>
+        <input id="description {{proj.id}}" type="text" ng-model="proj.description" ng-show="editing"/>
+      </td>
+      <td>
+        <a class="button edit" ng-hide="editing" ng-click="editing=true" >Edit</a>
+        <a class="button save" ng-show="editing" ng-click="editing=false;editProject({{proj.id}})">Done</a>
+      </td>
+      <td>
+        <a class="button star" ng-click="changeView('infoProject'+{{proj.id}})">More</a>
+      </td>
+      <td>
+        <a class="button delete" ng-click="deleteProject({{proj.id}})">Delete</a>
+      </td>
+    </tr>
+  </table>
+  {{roles}}
+</div>

@@ -1,0 +1,39 @@
+<div>
+  <h3>Liste des utilisateurs:</h3>
+
+
+    Search : <input type="text" ng-model="searchText"/>
+
+
+  <table id="mainTable">
+    <tr>
+      <th>NAME</th>
+      <th>SURNAME</th>
+      <th>EDIT</th>
+      <th>INFO</th>
+      <th>DELETE</th>
+    </tr>
+
+    <tr ng-repeat="user in users | filter:searchText" id="row {{user.id}}">
+      <td>
+        <label ng-hide="editing">{{user.name}}</label>
+        <input id="name {{user.id}}" type="text" ng-model="user.name" ng-show="editing"/>
+      </td>
+      <td>
+        <label ng-hide="editing">{{user.surname}}</label>
+        <input id="surname {{user.id}}" type="text" ng-model="user.surname" ng-show="editing"/>
+      </td>
+      <td>
+        <a class="button edit" ng-hide="editing" ng-click="editing=true" >Edit</a>
+        <a class="button save" ng-show="editing" ng-click="editing=false;editUser({{user.id}})">Done</a>
+      </td>
+      <td>
+        <a class="button star" ng-click="changeView('infoUser'+{{user.id}})">More</a>
+      </td>
+      <td>
+        <a class="button delete" ng-click="deleteUser({{user.id}})">Delete</a>
+      </td>
+    </tr>
+  </table>
+
+</div>
