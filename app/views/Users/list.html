@@ -9,6 +9,8 @@
     <tr>
       <th>NAME</th>
       <th>SURNAME</th>
+      <th>EMAIL</th>
+      <th>WEBSITE</th>
       <th>EDIT</th>
       <th>INFO</th>
       <th>DELETE</th>
@@ -22,6 +24,14 @@
       <td>
         <label ng-hide="editing">{{user.surname}}</label>
         <input id="surname {{user.id}}" type="text" ng-model="user.surname" ng-show="editing"/>
+      </td>
+      <td>
+        <label ng-hide="editing">{{user.email}}</label>
+        <input id="email {{user.id}}" type="text" ng-model="user.email" ng-show="editing"/>
+      </td>
+      <td>
+        <label ng-hide="editing">{{user.website}}</label>
+        <input id="website {{user.id}}" type="text" ng-model="user.website" ng-show="editing"/>
       </td>
       <td>
         <a class="button edit" ng-hide="editing" ng-click="editing=true" >Edit</a>

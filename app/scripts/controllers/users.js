@@ -33,6 +33,8 @@ angular.module('pooIhmExemplesApp')
       var user={};
       user.name = document.getElementById("name "+index).value;
       user.surname = document.getElementById("surname "+index).value;
+      user.email = document.getElementById("email "+index).value;
+      user.website = document.getElementById("website "+index).value;
       $http.put("http://poo-ihm-2015-rest.herokuapp.com/api/Users/"+index, user)
         .success(function(response) {
         });
